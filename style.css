@@ -1,0 +1,331 @@
+/* General */
+:root {
+  box-sizing: border-box;
+
+	--blue-10: #1c77ff;
+  --blue-20: #0368ff;
+  --blue-30: #005de8;
+  --gray-10: #fcfcfc;
+	--gray-20: #f4f4f4;
+	--gray-30: #6d6d6d;
+  --gray-40: #343434;
+	}
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+  }
+
+a {
+  text-decoration: none;
+}
+
+/* Text */
+span {
+  color: var(--blue-20);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  color: var(--gray-40);
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+  }
+
+/* Container */
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto; 
+}
+
+  /* Header  */
+.header__container {
+    background: var(--gray-10);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+  }
+
+  .header__nav {
+  display: flex;
+  list-style: none; 
+  padding: 0; 
+  margin: 0;  
+  gap: 32px;
+  padding-right: 140px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+li a {
+  color: var(--gray-40);
+}
+
+.header__logo {
+  padding-left: 140px;
+  text-align: center;
+  color: var(--gray-40);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* Cover  */
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 620px;
+  background: var(--gray-20);
+}
+
+.cover__head {
+  width: 522px;  
+  text-align: center;
+  margin-bottom: 24px;
+}
+.cover__text {
+  color: var(--gray-30);
+  width: 460px;  
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.cover__button {
+  background: var(--blue-20);
+  color: var(--gray-10);
+  width: 142px;
+  height: 45px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* Services  */
+
+/* класс .services для задания общего фона большого блока включающего 2 подблока */
+.services {
+  background: var(--gray-10);
+}
+
+/* классы для визуала и позиционирования двух подблоков Services */
+.services__desc,
+.prices {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-top: 96px;
+}
+
+/* Общий класс: и для кнопок и для всех карточек(видимых и невидимых) */
+.services__tabs {
+  position: relative;
+  text-align: center;
+  margin: 48px 0 40px;  
+}
+
+input, label {
+  display: inline-block;
+  margin-right: 28px;  
+  border-radius: 4px;
+  }
+
+.services__tabs input[type=radio] {
+  display: none;  /* скрывает переключатели радиокнопок */
+}
+
+.services__tabs label {
+  position: relative;
+  z-index: 1;
+  width: 210px;
+  height: 38px;
+  line-height: 38px;  
+  color: var(--gray-10);
+  background: var(--blue-20);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.switch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 38px;
+  width: 210px;
+  border: none;
+  border-radius: 4px;
+  transform: translateX(-360px); 
+  transition: transform .5s;
+}
+
+.services__tabs section {
+  display: none;
+  animation: scale .7s ease-in-out;
+}
+
+.services__tabs #tab1:checked~#content1,
+.services__tabs #tab2:checked~#content2,
+.services__tabs #tab3:checked~#content3 {
+    display: flex;
+    justify-content: center;
+    margin: 48px 0 40px;
+}
+
+.services__tabs input[type=radio]:checked+label+.switch {
+  background: var(--blue-20);
+  color: var(--gray-10);
+  /* фон и цвет текста нажатой(активной) кнопки */
+}
+
+.services__tabs input[type=radio]:not(:checked)+label {
+  background: var(--gray-20);
+  color: var(--gray-40);
+    /* фон и цвет текста не нажатой(неактивной) кнопки */
+}
+
+.services__cards {
+  display: flex;
+  gap: 40px;
+}
+
+.services__card {
+  text-align: left;
+  width: 260px;
+  background: var(--gray-10);
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+}
+
+.services__head {
+  width: 210px;
+  padding: 5px 0 5px 20px;
+  }
+
+.services__text {
+  color: var(--gray-30);
+  margin-top: -20px;
+  padding: 0 0 0 20px;
+}
+
+.services__link {
+  display: block;  
+  color: var(--blue-20);
+  padding: 0 0 20px 20px;
+}
+
+/* Prices of Services  */
+.prices__table {
+  margin: 0 auto;  
+  padding-bottom: 130px;
+}
+
+td {
+  border-bottom: 1px solid var(--blue-20);
+}
+
+.prices__text {
+  color: var(--gray-30);
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  line-height: 22px;
+  padding: 0 85px;
+
+}
+
+.prices__rur {
+  color: var(--blue-20);
+  font-size: 24px;
+  font-weight: 700;
+  text-align: right;
+}
+/* End of Services */
+
+/* Contacts  */
+.footer {
+  background: var(--gray-20);
+  }
+
+.footer__head {
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--gray-40);
+  padding: 72px 0 12px;
+  margin: 0;  
+}
+
+.footer__text {
+  color: var(--gray-30);
+  text-align: center;
+  padding-bottom: 36px;
+  }
+
+  /* Состояния кнопки Связаться и ссылок меню */
+  .cover__button:hover {
+    background-color: var(--blue-10);
+    cursor: pointer;
+  }
+
+  .cover__button:active {
+    background-color: var(--blue-30);
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: var(--blue-10);
+    cursor: pointer;
+  }
+
+  a:active {
+    color: var(--blue-30);
+    cursor: pointer;
+  }
+
+  /* Кнопка Вверх, внизу страницы */
+  .scroll-to-top {
+    position: fixed;
+    right: 10px;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 99;
+    transition: all 0.3s ease-in-out;
+  }
+  .scroll-to-top:hover {
+    transform: scale(1.1);
+  }
+  @media (max-width: 767px) {
+    .scroll-to-top {
+      right: 5px;
+    }
+  }
+  .scroll-to-top svg {
+    width: 60px;
+    height: 60px;
+    fill: var(--blue-20);
+  }
+  @media (max-width: 767px) {
+    .scroll-to-top svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
