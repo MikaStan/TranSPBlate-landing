@@ -22,11 +22,12 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--gray-40);
 }
 
 /* Text */
-span {
-  color: var(--blue-20);
+.blue__logo {
+  color: var(--blue-20); /* часть текста логотипа -- синего цвета */
 }
 
 h1,
@@ -49,42 +50,45 @@ h3 {
   font-size: 24px;
   }
 
+.break__text {
+  display: block;  /* перенос текста на новую строку */
+}
+
+h1, h2, h3, p {
+  /* padding: 0;
+  margin: 0; */
+}
+
 /* Container */
 .container {
   max-width: 1440px;
-  width: 100%;
-  margin: 0 auto; 
+  width: 100%; /* на любых экранах МЕНЬШЕ значения max-width содержимое будет занимать все доступное пространство */
+  margin-inline: auto; 
 }
 
   /* Header  */
 .header__container {
-    background: var(--gray-10);
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-  }
-
-  .header__nav {
+  background: var(--gray-10);
   display: flex;
-  list-style: none; 
-  padding: 0; 
-  margin: 0;  
-  gap: 32px;
-  padding-right: 140px;
-  font-weight: 500;
-  font-size: 20px;
-}
-
-li a {
-  color: var(--gray-40);
+  flex-wrap: wrap;
+  gap: 54.6%;
+  justify-content: center; 
+  align-items: center; 
+  padding: 0 140px;
 }
 
 .header__logo {
-  padding-left: 140px;
   text-align: center;
   color: var(--gray-40);
-  font-weight: 700;
   font-size: 24px;
+  font-weight: 700;
+}
+
+.header__nav {
+  display: flex;
+  gap: 32px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 /* Cover  */
@@ -97,15 +101,19 @@ li a {
   background: var(--gray-20);
 }
 
-.cover__head {
-  width: 522px;  
+.cover__head,
+.cover__text {
   text-align: center;
+}
+
+.cover__head {
+  max-width: 522px; /* ширина из Фигмы - чтобы текст был в 2 строки */
   margin-bottom: 24px;
 }
+
 .cover__text {
   color: var(--gray-30);
-  width: 460px;  
-  text-align: center;
+  max-width: 460px; /* ширина из Фигмы - чтобы текст был в 2 строки */
   margin-bottom: 48px;
 }
 
@@ -116,8 +124,8 @@ li a {
   height: 45px;
   border: none;
   border-radius: 4px;
-  font-weight: 500;
   font-size: 20px;
+  font-weight: 500;
 }
 
 /* Services  */
@@ -131,7 +139,7 @@ li a {
 .services__desc,
 .prices {
   max-width: 1160px;
-  margin: 0 auto;
+  margin-inline: auto;
   padding-top: 96px;
 }
 
@@ -139,12 +147,12 @@ li a {
 .services__tabs {
   position: relative;
   text-align: center;
-  margin: 48px 0 40px;  
+  margin: 48px 0 40px;  /* вставил сюда МОИ margin которые применял ранее в другом коде */
 }
 
 input, label {
   display: inline-block;
-  margin-right: 28px;  
+  margin-right: 28px;  /* взамен МОИХ прежних flex gap 28px, для кнопок */
   border-radius: 4px;
   }
 
@@ -157,15 +165,17 @@ input, label {
   z-index: 1;
   width: 210px;
   height: 38px;
-  line-height: 38px;  
+  line-height: 38px;  /* Межстрочное расстояние = высоте кнопки label - это выравнивает текст по вертикали кнопки */
   color: var(--gray-10);
   background: var(--blue-20);
-  font-weight: 500;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
 }
 
 .switch {
+  /* т.к. этот строчный span - дочерний блочного div .services__tabs 
+  то свойство block для него уже не задается */
   position: absolute;
   top: 0;
   left: 50%;
@@ -173,7 +183,7 @@ input, label {
   width: 210px;
   border: none;
   border-radius: 4px;
-  transform: translateX(-360px); 
+  transform: translateX(-360px); /* значение подобрано методом тыка */
   transition: transform .5s;
 }
 
@@ -227,15 +237,30 @@ input, label {
 }
 
 .services__link {
-  display: block;  
+  display: block;  /* чтобы для ссылки действовали вертикальные padding */
   color: var(--blue-20);
   padding: 0 0 20px 20px;
 }
 
+/* Как выровнять иконку по центру вертикали ссылки - пока не знаю! */
+/* img должен быть внутри а - потому что иконка тоже часть ссылки! */
+/* Сделать div с классом например link и применить к нему флекс?
+Потому что Devmode Pixso такой код показывает для этого frame! */
+
+/* .link {
+  display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+gap: 4px;
+padding: 0;
+} */
+
 /* Prices of Services  */
 .prices__table {
-  margin: 0 auto;  
+  margin-inline: auto;  /* выравнивание по центру родительского контейнера */
   padding-bottom: 130px;
+  overflow-x: auto;  /* горизонт-скролл таблицы на маленьких экранах */
 }
 
 td {
@@ -244,8 +269,8 @@ td {
 
 .prices__text {
   color: var(--gray-30);
-  font-weight: 500;
   font-size: 16px;
+  font-weight: 500;
   text-align: center;
   line-height: 22px;
   padding: 0 85px;
@@ -265,18 +290,21 @@ td {
   background: var(--gray-20);
   }
 
-.footer__head {
+.footer__head,
+.footer__text {
   text-align: center;
-  font-weight: 700;
+}
+
+.footer__head {
   font-size: 24px;
+  font-weight: 700;
   color: var(--gray-40);
   padding: 72px 0 12px;
-  margin: 0;  
+  margin: 0;  /* вроде как это решило проблему пустого белого зазора между блоком Services и футером  */
 }
 
 .footer__text {
   color: var(--gray-30);
-  text-align: center;
   padding-bottom: 36px;
   }
 
@@ -313,7 +341,7 @@ td {
   .scroll-to-top:hover {
     transform: scale(1.1);
   }
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     .scroll-to-top {
       right: 5px;
     }
@@ -323,9 +351,53 @@ td {
     height: 60px;
     fill: var(--blue-20);
   }
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     .scroll-to-top svg {
       width: 40px;
       height: 40px;
     }
   }
+
+
+  /* MEDIA */
+
+  @media (max-width: 1024px) {
+    .services__cards {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    label {
+      margin-right: 14px; /* чтобы кнопки визуально были точно по центру */
+    }
+    .switch {
+      transform: translateX(-339px); /* эта величина также зависит от значения вышеуказанного label */
+    }
+  }
+
+  @media (max-width: 540px) {
+    .header__nav {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+    .services__tabs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px; 
+    }
+    label {
+      margin-right: 0; /* чтобы кнопки визуально были точно по центру */
+    }
+    .switch {
+      transform: translateX(-105px); /* эта величина также зависит от значения вышеуказанного label */
+    }
+  }
+
+  @media (max-width: 380px) {
+    .header__container {
+      padding: 0 70px;
+    }
+  }
+    
