@@ -3,12 +3,12 @@
   box-sizing: border-box;
 
 	--blue-10: #1c77ff;
-  --blue-20: #0368ff;
-  --blue-30: #005de8;
-  --gray-10: #fcfcfc;
+	--blue-20: #0368ff;
+	--blue-30: #005de8;
+	--gray-10: #fcfcfc;
 	--gray-20: #f4f4f4;
 	--gray-30: #6d6d6d;
-  --gray-40: #343434;
+	--gray-40: #343434;
 	}
 
   *, *::before, *::after {
@@ -62,7 +62,7 @@ h1, h2, h3, p {
 /* Container */
 .container {
   max-width: 1440px;
-  width: 100%; /* на любых экранах МЕНЬШЕ значения max-width содержимое будет занимать все доступное пространство */
+  width: 100%; 
   margin-inline: auto; 
 }
 
@@ -147,12 +147,12 @@ h1, h2, h3, p {
 .services__tabs {
   position: relative;
   text-align: center;
-  margin: 48px 0 40px;  /* вставил сюда МОИ margin которые применял ранее в другом коде */
+  margin: 48px 0 40px;  
 }
 
 input, label {
   display: inline-block;
-  margin-right: 28px;  /* взамен МОИХ прежних flex gap 28px, для кнопок */
+  margin-right: 28px;  
   border-radius: 4px;
   }
 
@@ -174,8 +174,6 @@ input, label {
 }
 
 .switch {
-  /* т.к. этот строчный span - дочерний блочного div .services__tabs 
-  то свойство block для него уже не задается */
   position: absolute;
   top: 0;
   left: 50%;
@@ -242,19 +240,6 @@ input, label {
   padding: 0 0 20px 20px;
 }
 
-/* Как выровнять иконку по центру вертикали ссылки - пока не знаю! */
-/* img должен быть внутри а - потому что иконка тоже часть ссылки! */
-/* Сделать div с классом например link и применить к нему флекс?
-Потому что Devmode Pixso такой код показывает для этого frame! */
-
-/* .link {
-  display: flex;
-flex-direction: row;
-justify-content: flex-start;
-align-items: center;
-gap: 4px;
-padding: 0;
-} */
 
 /* Prices of Services  */
 .prices__table {
@@ -300,7 +285,7 @@ td {
   font-weight: 700;
   color: var(--gray-40);
   padding: 72px 0 12px;
-  margin: 0;  /* вроде как это решило проблему пустого белого зазора между блоком Services и футером  */
+  margin: 0;  
 }
 
 .footer__text {
