@@ -9,7 +9,6 @@ RU
 
 Напоследок замечу, что эта верстка не pixel perfect – при работе я не использовал одноименный браузерный плагин, а всего лишь руководствовался правилами веб-дизайна, в частности правилом внутреннего и внешнего.
 
-К сожалению, мною пока свёрстана только десктопная версия - то есть та, которая была предоставлена в курсе  HTML-Academy. 
 ------------------------------
 
 ENG
@@ -23,5 +22,4 @@ I also went a bit further - and finalized the layout:
 
 Finally, I'll note that this layout is not pixel perfect - I did not use the browser plugin of the same name, and just followed the rules of web design, in particular, the rule of internal and external.
 
-Unfortunately, I've only built the desktop version so far - that is, the one provided in the HTML-Academy course. 
 
